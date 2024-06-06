@@ -4,10 +4,26 @@ This tool uses Apple’s [Live Text feature](https://support.apple.com/en-gb/gui
 This gives you a way to OCR images programatically without installing any extra software.
 
 ```console
-$ get_live_text "picture_of_a_sign.jpg"
+$ get_live_text "railway_sign.jpg"
 ```
 
 This is the same as if you'd copy/pasted the text from the image using the Preview app, but now you can do so programatically and in bulk.
+
+<img src="railway_sign.jpg" alt="A picture of a railway sign with the text highlighted, and a popover menu offering several options: ‘Look up “Passengers must not pass this point or cross the line”’, ‘Translate “Passengers must not pass this point or cross the line”’, Search with Google, Copy, or Share.">
+
+## Motivation
+
+My priority is convenience, not absolute accuracy.
+
+I've had issues installing third-party OCR tools in the past, whereas Live Text is built into macOS.
+It's pretty quick for me to get this up and running on a new machine.
+
+There may be other frameworks which provide more accurate transcription of text, but Live Text is good enough for my purposes.
+Currently I have two use cases for this script:
+
+*   Transcribing screenshots from my ebook reader, to add to my notes app.
+    I go through and edit those transcripts, so I can fix any mistakes it’s made.
+*   Creating search indexes of scanned images, where a little bit of inaccuracy is fine, as long as it's good enough for me to find the right image.
 
 ## Installation
 
@@ -38,5 +54,5 @@ You can get around this by right-clicking the app icon in Finder, and choosing `
 Run the script passing one arguments: the path to the image you want to OCR.
 
 ```console
-$ get_live_text "picture_of_a_sign.jpg"
+$ get_live_text "railway_sign.jpg"
 ```
