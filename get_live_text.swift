@@ -34,6 +34,8 @@
 
 import Vision
 
+let SCRIPT_VERSION = "1.0.0"
+
 // Process the results of the text-recognition request.
 //
 // This is based on the code in Apple's documentation, and prints the
@@ -52,21 +54,16 @@ func recognizeTextHandler(request: VNRequest, error: Error?) {
     return observation.topCandidates(1).first?.string
   }
 
-  // Serialise to JSON
-  do {
-    let jsonData = try JSONSerialization.data(withJSONObject: recognizedStrings)
-
-    if let JSONString = String(data: jsonData, encoding: String.Encoding.utf8) {
-      print(JSONString)
-    }
-  } catch {
-    fputs("Unable to serialise the result as JSON: \(error).\n", stderr)
-    exit(1)
-  }
+  print(recognizedStrings.joined(separator: " "))
 }
 
 // Given the path to an image, print a JSON array of text it contains.
 func printTextInImage(imagePath: String) {
+  if !FileManager.default.fileExists(atPath: imagePath) {
+    fputs("Cannot find file at path: \(imagePath)\n", stderr)
+    exit(1)
+  }
+
   let requestHandler = VNImageRequestHandler(
     url: URL(fileURLWithPath: imagePath),
     options: [:]
@@ -85,8 +82,14 @@ func printTextInImage(imagePath: String) {
 
 let arguments = CommandLine.arguments
 
+if arguments.count == 2 && arguments[1] == "--version" {
+  let filename = (arguments[0] as NSString).lastPathComponent
+  print("\(filename) \(SCRIPT_VERSION)")
+  exit(0)
+}
+
 if arguments.count != 2 {
-  fputs("Usage: \(arguments[0]) PATH\n", stderr)
+  fputs("Usage: \(arguments[0]) <PATH>\n", stderr)
   exit(1)
 }
 
