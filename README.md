@@ -4,7 +4,7 @@ This tool uses Apple’s [Live Text feature](https://support.apple.com/en-gb/gui
 This gives you a way to OCR images programatically without installing any extra software.
 
 ```console
-get_live_text "picture_of_a_sign.jpg"
+$ get_live_text "picture_of_a_sign.jpg"
 ```
 
 This is the same as if you'd copy/pasted the text from the image using the Preview app, but now you can do so programatically and in bulk.
