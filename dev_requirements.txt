@@ -16,7 +16,7 @@ pytest==8.4.1
     # via
     #   -r dev_requirements.in
     #   pytest-xdist
-pytest-xdist==3.7.0
+pytest-xdist==3.8.0
     # via -r dev_requirements.in
 tomli==2.2.1
     # via pytest
