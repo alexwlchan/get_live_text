@@ -11,9 +11,7 @@ on:
 
 jobs:
   test:
-    # I'm trying pinning this to an older version to see if it fixes
-    # https://github.com/alexwlchan/get_live_text/issues/2
-    runs-on: macos-13
+    runs-on: macos-15
 
     steps:
     - uses: actions/checkout@v5
@@ -21,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
-        python-version: "3.12"
+        python-version: "3.13"
         cache: 'pip'
         cache-dependency-path: 'dev_requirements.txt'
 
