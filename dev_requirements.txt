@@ -10,7 +10,7 @@ pluggy==1.6.0
     # via pytest
 pygments==2.19.2
     # via pytest
-pytest==9.0.0
+pytest==9.0.1
     # via
     #   -r dev_requirements.in
     #   pytest-xdist
